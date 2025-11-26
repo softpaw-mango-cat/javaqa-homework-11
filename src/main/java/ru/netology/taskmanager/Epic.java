@@ -2,15 +2,15 @@ package ru.netology.taskmanager;
 
 public class Epic extends Task {
 
-    protected String[] subtask;
+    protected String[] subtasks;
 
-    public Epic(int id, String[] subtask) {
+    public Epic(int id, String[] subtasks) {
         super(id);
-        this.subtask = subtask;
+        this.subtasks = subtasks;
     }
 
-    public String[] getSubtask() {
-        return subtask;
+    public String[] getSubtasks() {
+        return subtasks;
     }
 
     /**
@@ -22,7 +22,7 @@ public class Epic extends Task {
      */
     @Override
     public boolean matches(String query) {
-        for (String s : subtask) {
+        for (String s : subtasks) {
             // добавила toLowerCase() для регистронезависимости
             if (s.toLowerCase().contains(query.toLowerCase())) {
                 return true;
