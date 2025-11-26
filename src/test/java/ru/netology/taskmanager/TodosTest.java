@@ -2,16 +2,17 @@ package ru.netology.taskmanager;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TodosTest {
-    private static SimpleTask simpleTask;
-    private static Epic epic;
-    private static Meeting meeting;
-    private static Todos todos;
+    private SimpleTask simpleTask;
+    private Epic epic;
+    private Meeting meeting;
+    private Todos todos;
 
-    @BeforeAll
-    public static void setupManager() {
+    @BeforeEach
+    public void setupManager() {
         simpleTask = new SimpleTask(5, "Позвонить родителям");
         String[] subtasks = {"Молоко", "Яйца", "Хлеб"};
         epic = new Epic(55, subtasks);
