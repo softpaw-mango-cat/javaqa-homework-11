@@ -44,6 +44,15 @@ public class TodosTest {
     }
 
     @Test
+    public void shouldFindTwoMatches() {
+        Task simpleTask2 = new SimpleTask(6, "Позвонить бабушке");
+        todos.add(simpleTask2);
+        Task[] expected = {simpleTask, simpleTask2};
+        Task[] actual = todos.search("Позвонить");
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
     public void shouldFindMatchSimpleTask() {
         Task[] expected = {simpleTask};
         Task[] actual = todos.search("позвонить");
