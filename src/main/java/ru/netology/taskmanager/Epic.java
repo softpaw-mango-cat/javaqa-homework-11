@@ -22,9 +22,9 @@ public class Epic extends Task {
      */
     @Override
     public boolean matches(String query) {
-        for (String s : subtasks) {
+        for (String subtask : subtasks) {
             // добавила toLowerCase() для регистронезависимости
-            if (s.toLowerCase().contains(query.toLowerCase())) {
+            if (subtask.toLowerCase().contains(query.toLowerCase())) {
                 return true;
             }
         }
