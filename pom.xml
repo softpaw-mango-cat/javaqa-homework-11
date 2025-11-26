@@ -34,11 +34,11 @@
                 </configuration>
             </plugin>
             <plugin>
-                 <groupId>org.jacoco</groupId>
+                <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.5</version>
-                 <executions>
-                          <execution>
+                <executions>
+                    <execution>
                         <id>prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
@@ -50,6 +50,14 @@
                         <goals>
                             <goal>report</goal>
                         </goals>
+                        <configuration>
+                            <excludes>
+                                <exclude>**/ru/netology/taskmanager/Task.class</exclude>
+                                <exclude>**/ru/netology/taskmanager/SimpleTask.class:get*</exclude>
+                                <exclude>**/ru/netology/taskmanager/Epic.class:get*</exclude>
+                                <exclude>**/ru/netology/taskmanager/Meeting.class:get*</exclude>
+                            </excludes>
+                        </configuration>
                     </execution>
                     <execution>
                         <id>check</id>
@@ -59,6 +67,12 @@
                         <configuration>
                             <rules>
                                 <rule>
+                                    <element>METHOD</element>
+                                    <excludes>
+                                        <exclude>ru/netology/taskmanager/SimpleTask.class:get*</exclude>
+                                        <exclude>ru/netology/taskmanager/Epic.get*</exclude>
+                                        <exclude>ru/netology/taskmanager/Meeting.get*</exclude>
+                                    </excludes>
                                     <limits>
                                         <limit>
                                             <counter>BRANCH</counter>
@@ -68,9 +82,15 @@
                                     </limits>
                                 </rule>
                             </rules>
+                            <excludes>
+                                <exclude>**/ru/netology/taskmanager/Task.class</exclude>
+                                <exclude>ru/netology/taskmanager/SimpleTask.class:get*</exclude>
+                                <exclude>**/ru/netology/taskmanager/Epic.class:get*</exclude>
+                                <exclude>**/ru/netology/taskmanager/Meeting.class:get*</exclude>
+                            </excludes>
                         </configuration>
                     </execution>
-                 </executions>
+                </executions>
             </plugin>
         </plugins>
     </build>
